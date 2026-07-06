@@ -1,20 +1,58 @@
 import streamlit as st
-from pages.dashboard import show_dashboard
-from pages.organizer import show_organizer
-from pages.duplicates import show_duplicates
-from pages.pdf_tools import show_pdf_tools
-from pages.image_tools import show_image_tools
-from pages.excel_tools import show_excel_tools
-from pages.settings import show_settings
+
+from views.dashboard import show_dashboard
+from views.organizer import show_organizer
+from views.duplicates import show_duplicates
+from views.pdf_tools import show_pdf_tools
+from views.image_tools import show_image_tools
+from views.excel_tools import show_excel_tools
+from views.settings import show_settings
 
 st.set_page_config(
-    page_title="FlowForge AI",
+    page_title="FlowForge",
     page_icon="⚙️",
     layout="wide"
 )
 
-st.sidebar.title("⚙️ FlowForge AI")
-st.sidebar.caption("Business Automation Suite")
+st.markdown("""
+<style>
+[data-testid="stSidebarNav"] {
+    display: none;
+}
+
+.block-container {
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+}
+
+.main-title {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 0;
+}
+
+.subtitle {
+    font-size: 1.25rem;
+    color: #6b7280;
+    margin-bottom: 2rem;
+}
+
+.sidebar-brand {
+    font-size: 1.6rem;
+    font-weight: 800;
+    margin-bottom: 0.25rem;
+}
+
+.sidebar-caption {
+    color: #6b7280;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+}
+</style>
+""", unsafe_allow_html=True)
+
+st.sidebar.markdown('<div class="sidebar-brand">⚙️ FlowForge</div>', unsafe_allow_html=True)
+st.sidebar.markdown('<div class="sidebar-caption">Business Automation Suite</div>', unsafe_allow_html=True)
 
 page = st.sidebar.radio(
     "Navigation",
